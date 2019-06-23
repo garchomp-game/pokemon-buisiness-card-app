@@ -5,7 +5,8 @@ v-ons-page
       v-ons-toolbar-button(@click="showSettingIndex" icon="md-settings") 設定
     .center Home
     .right
-      v-ons-toolbar-button(@click="showMypageEdit") 編集
+      v-ons-toolbar-button(@click="showMypageEdit" icon="ion-edit") 
+      v-ons-toolbar-button(@click="showCardsIndex" icon="ion-list") List
   v-ons-list
     v-ons-list-header Trainer Name
     v-ons-list-item めきは
