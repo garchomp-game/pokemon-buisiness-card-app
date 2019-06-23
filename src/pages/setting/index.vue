@@ -1,8 +1,11 @@
 <template>
   <v-ons-page>
-    <h1>setting/index</h1>
-    <v-ons-button @click="pop">戻る</v-ons-button>
-    
+    <v-ons-toolbar>
+      <div class="left">
+        <v-ons-toolbar-button @click="pop">戻る</v-ons-toolbar-button>
+      </div>
+      <div class="center">Setting</div>
+    </v-ons-toolbar>    
   </v-ons-page>
 </template>
 <script>
