@@ -1,5 +1,11 @@
 <template lang="pug">
 v-ons-page
+  v-ons-toolbar
+    .left
+      v-ons-button(@click="showSettingIndex") 設定
+    .center Home
+    .right
+      v-ons-button(@click="showMypageEdit") 編集
   v-ons-list
     v-ons-list-header Trainer Name
     v-ons-list-item めきは
@@ -22,9 +28,9 @@ v-ons-page
         v-ons-button(@click="showCardsShow") CardsShow
       v-ons-list-item
         v-ons-button(@click="showMypageIndex") MypageIndex
-      v-ons-list-item
+      //v-ons-list-item
         v-ons-button(@click="showMypageEdit") MypageEdit
-      v-ons-list-item
+      //v-ons-list-item
         v-ons-button(@click="showSettingIndex") SettingIndex
 </template>
 
