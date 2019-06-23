@@ -1,5 +1,18 @@
 <template lang="pug">
 v-ons-page
+  v-ons-list
+    v-ons-list-header Trainer Name
+    v-ons-list-item めきは
+    v-ons-list-header Name
+    v-ons-list-item 
+    v-ons-list-header Character
+    v-ons-list-item のんびり
+    v-ons-list-header FriendCode(PokemonGO)
+    v-ons-list-item 1111-2222-3333-4444
+    v-ons-list-header FriendCode(Switch)
+    v-ons-list-item 1111-2222-3333-4444
+    v-ons-list-header FriendCode(3DS)
+    v-ons-list-item 1111-2222-3333-4444
   v-ons-card
     .title home
     v-ons-list
