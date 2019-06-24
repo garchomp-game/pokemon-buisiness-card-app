@@ -22,7 +22,7 @@ v-ons-page
     v-ons-list-item 1111-2222-3333-4444
   v-ons-card
     .title home
-    v-ons-list
+    //v-ons-list
       v-ons-list-item
         v-ons-button(@click="showCardsIndex") CardsIndex
       v-ons-list-item
