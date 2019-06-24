@@ -15,11 +15,38 @@
           v-ons-switch
       v-ons-list-item
         .custom-left
+          v-ons-switch
+        .custom-right
+          v-ons-switch
+      v-ons-list-item
+        .custom-left
           v-ons-select#choose-sel.custom-left-input
             option(value='')
             option(value='samisigari') さみしがり
             option(value='ijippari') いじっぱり
             option(value='yantya') やんちゃ
+            option(value='yukan') ゆうかん
+            option(value='zubutoi') ずぶとい
+            option(value='wanpaku') わんぱく
+            option(value='notenki') のうてんき
+            option(value='nonki') のんき
+            option(value='hikaeme') ひかえめ
+            option(value='ottori') おっとり
+            option(value='ukkariya') うっかりや
+            option(value='reisei') れいせい
+            option(value='odayaka') おだやか
+            option(value='otonasi') おとなしい
+            option(value='sintyo') しんちょう
+            option(value='namaiki') なまいき
+            option(value='okubyou') おくびょう
+            option(value='sekkati') せっかち
+            option(value='youki') ようき
+            option(value='mujaki') むじゃき
+            option(value='tereya') てれや
+            option(value='ganbariya') がんばりや
+            option(value='sunao') すなお
+            option(value='kimagure') きまぐれ
+            option(value='majime') まじめ
         .custom-right
           v-ons-switch
       v-ons-list-item
