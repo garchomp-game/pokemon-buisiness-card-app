@@ -15,7 +15,10 @@
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-switch
+          v-ons-select#choose-sel.custom-left-input
+            option(value='')
+            option(value='♂') ♂
+            option(value='♀') ♀
         .custom-right
           v-ons-switch
       v-ons-list-item
@@ -62,6 +65,16 @@
       v-ons-list-item
         .custom-left
           v-ons-input.custom-left-input(placeholder='Friend Code(3DS)', modifier='material')
+        .custom-right
+          v-ons-switch
+      v-ons-list-item
+        .custom-left
+          v-ons-input.custom-left-input(placeholder='TwitterID', modifier='material')
+        .custom-right
+          v-ons-switch
+      v-ons-list-item
+        .custom-left
+          v-ons-input.custom-left-input(placeholder='PixivID', modifier='material')
         .custom-right
           v-ons-switch
 </template>

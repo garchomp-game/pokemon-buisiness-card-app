@@ -22,6 +22,10 @@ v-ons-page
     v-ons-list-item 1111-2222-3333-4444
     v-ons-list-header FriendCode(3DS)
     v-ons-list-item 1111-2222-3333-4444
+    v-ons-list-header TwitterID
+    v-ons-list-item 
+    v-ons-list-header PixivID
+    v-ons-list-item 
   //v-ons-card
     .title home
     //v-ons-list
