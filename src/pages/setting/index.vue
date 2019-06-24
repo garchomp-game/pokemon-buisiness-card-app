@@ -1,8 +1,9 @@
-<template>
-  <v-ons-page>
-    <h1>setting/index</h1>
-    <v-ons-button @click="pop">戻る</v-ons-button>
-  </v-ons-page>
+<template lang="pug">
+  v-ons-page
+    v-ons-toolbar
+      .left
+        v-ons-toolbar-button(@click="pop") 戻る
+      .center Setting
 </template>
 <script>
 export default {
