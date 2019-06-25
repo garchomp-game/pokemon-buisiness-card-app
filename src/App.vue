@@ -11,14 +11,24 @@
 <script>
 import Home from './pages/Home'
 import Navigation from './components/Navigation'
+import firebase from 'firebase/app'
+import Login from './Login'
 export default {
   data () {
     return {
       pageStack: [Home]
     }
   },
+  created () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        this.pageStack.push(Login)
+      }
+    })
+  },
   components: {
-    Navigation
+    Navigation,
+    Login
   },
   methods: {
     reset () {

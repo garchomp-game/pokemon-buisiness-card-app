@@ -5,13 +5,13 @@ v-ons-page
       v-ons-toolbar-button(@click="showSettingIndex" icon="md-settings") 設定
     .center Home
     .right
-      v-ons-toolbar-button(@click="showMypageEdit" icon="ion-edit") 
+      v-ons-toolbar-button(@click="showMypageEdit" icon="ion-edit")
       v-ons-toolbar-button(@click="showCardsIndex" icon="ion-list") List
   v-ons-list
     v-ons-list-header Trainer Name
     v-ons-list-item めきは
     v-ons-list-header Name
-    v-ons-list-item 
+    v-ons-list-item
     v-ons-list-header Sex
     v-ons-list-item ♂
     v-ons-list-header Character
@@ -23,21 +23,21 @@ v-ons-page
     v-ons-list-header FriendCode(3DS)
     v-ons-list-item 1111-2222-3333-4444
     v-ons-list-header TwitterID
-    v-ons-list-item 
+    v-ons-list-item
     v-ons-list-header PixivID
-    v-ons-list-item 
-  //v-ons-card
+    v-ons-list-item
+  //-v-ons-card
     .title home
-    //v-ons-list
+    //-v-ons-list
       v-ons-list-item
         v-ons-button(@click="showCardsIndex") CardsIndex
       v-ons-list-item
         v-ons-button(@click="showCardsShow") CardsShow
       v-ons-list-item
         v-ons-button(@click="showMypageIndex") MypageIndex
-      //v-ons-list-item
+      //-v-ons-list-item
         v-ons-button(@click="showMypageEdit") MypageEdit
-      //v-ons-list-item
+      //-v-ons-list-item
         v-ons-button(@click="showSettingIndex") SettingIndex
 </template>
 
