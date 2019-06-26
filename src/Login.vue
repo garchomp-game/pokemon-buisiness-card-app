@@ -4,16 +4,18 @@
       .center ログイン画面
     v-ons-list
       v-ons-list-item
-        v-ons-input(placeholder="email" v-model="email")
+        v-ons-input(placeholder="メールアドレス" v-model="email")
       v-ons-list-item
         v-ons-input(
-          placeholder='password'
+          placeholder='パスワード'
           v-model="password"
           type="password"
         )
-    v-ons-button(@click="logIn")
+    v-ons-button.button-custom-margin(@click="logIn") ログインする
+    v-ons-button.button-custom-margin(@click="signUpPage") 新規登録する
 </template>
 <script>
+import SignUp from './SignUp'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 export default {
@@ -31,9 +33,15 @@ export default {
       .catch(err => {
         console.log(err)
       })
+    },
+    signUpPage () {
+      this.$emit('push', SignUp)
     }
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="sass" scoped>
+  .button-custom-margin
+    margin-left: 20px
+    margin-top: 10px
 </style>
