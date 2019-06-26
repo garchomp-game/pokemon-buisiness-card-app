@@ -4,13 +4,14 @@
       .center ログイン画面
     v-ons-list
       v-ons-list-item
-        v-ons-input(placeholder="email" v-model="name")
+        v-ons-input(placeholder="email" v-model="email")
       v-ons-list-item
         v-ons-input(
           placeholder='password'
           v-model="password"
           type="password"
         )
+    v-ons-button(@click="logIn")
 </template>
 <script>
 import firebase from 'firebase/app'
