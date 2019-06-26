@@ -5,10 +5,21 @@ import 'onsenui/css/onsen-css-components.css'
 
 import Vue from 'vue'
 import VueOnsen from 'vue-onsenui'
+import firebase from 'firebase/app'
 import store from './store'
 import App from './App'
 
 Vue.config.productionTip = false
+// setup firebase
+const config = {
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  databaseURL: process.env.databaseURL,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId
+}
+firebase.initializeApp(config)
 
 Vue.use(VueOnsen)
 
