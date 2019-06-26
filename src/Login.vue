@@ -1,6 +1,16 @@
 <template lang="pug">
   v-ons-page
-    h1 login page
+    v-ons-toolbar
+      .center ログイン画面
+    v-ons-list
+      v-ons-list-item
+        v-ons-input(placeholder="email" v-model="name")
+      v-ons-list-item
+        v-ons-input(
+          placeholder='password'
+          v-model="password"
+          type="password"
+        )
 </template>
 <script>
 import firebase from 'firebase/app'
@@ -15,8 +25,9 @@ export default {
     logIn () {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
       .then(user => {
-        console.log(user)
-      }, err => {
+        this.$emit('pop')
+      })
+      .catch(err => {
         console.log(err)
       })
     }
