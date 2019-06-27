@@ -1,12 +1,6 @@
 <template lang="pug">
 v-ons-page
-  v-ons-toolbar
-    .left
-      v-ons-toolbar-button(@click="showSettingIndex" icon="md-settings") 設定
-    .center Home
-    .right
-      v-ons-toolbar-button(@click="showMypageEdit" icon="ion-edit")
-      v-ons-toolbar-button(@click="showCardsIndex" icon="ion-list") List
+  Navigation(centerMessage='Home')
   v-ons-list
     v-ons-list-header Trainer Name
     v-ons-list-item めきは
@@ -26,18 +20,18 @@ v-ons-page
     v-ons-list-item
     v-ons-list-header PixivID
     v-ons-list-item
-  //-v-ons-card
+  //- v-ons-card
     .title home
-    //-v-ons-list
+    //- v-ons-list
       v-ons-list-item
         v-ons-button(@click="showCardsIndex") CardsIndex
       v-ons-list-item
         v-ons-button(@click="showCardsShow") CardsShow
       v-ons-list-item
         v-ons-button(@click="showMypageIndex") MypageIndex
-      //-v-ons-list-item
+      //- v-ons-list-item
         v-ons-button(@click="showMypageEdit") MypageEdit
-      //-v-ons-list-item
+      //- v-ons-list-item
         v-ons-button(@click="showSettingIndex") SettingIndex
 </template>
 
@@ -47,8 +41,11 @@ import CardsShow from './cards/show'
 import MypageIndex from './mypage/index'
 import MypageEdit from './mypage/edit'
 import SettingIndex from './setting/index'
-
+import Navigation from '../components/Navigation'
 export default {
+  components: {
+    Navigation
+  },
   methods: {
     showCardsIndex () {
       this.$emit('push', CardsIndex)

@@ -1,13 +1,17 @@
 <template lang="pug">
 .toolbar
   .toolbar__left
-    v-ons-button(v-if="!hideBack" @click="pull" modifier="quiet") 戻る
+    v-ons-toolbar-button(@click="showSettingIndex" icon="md-settings") 設定
   .toolbar__center {{ centerMessage }}
   .toolbar__right
-    MenuBar(@logout="logout")
+    v-ons-toolbar-button(@click="showMypageEdit" icon="ion-edit")
+    v-ons-toolbar-button(@click="showCardsIndex" icon="ion-list") List
 </template>
 <script>
 import MenuBar from './MenuBar'
+import CardsIndex from '../pages/cards/index'
+import MypageEdit from '../pages/mypage/edit'
+import SettingIndex from '../pages/setting/index'
 export default {
   name: 'Navigator',
   data: () => ({
@@ -39,6 +43,15 @@ export default {
     },
     logout () {
       this.$emit('logout')
+    },
+    showCardsIndex () {
+      this.$emit('push', CardsIndex)
+    },
+    showMypageEdit () {
+      this.$emit('push', MypageEdit)
+    },
+    showSettingIndex () {
+      this.$emit('push', SettingIndex)
     }
   }
 }
