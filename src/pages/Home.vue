@@ -1,6 +1,6 @@
 <template lang="pug">
 v-ons-page
-  Navigation(centerMessage='Home')
+  Navigation(centerMessage='Home' @push="emitPush")
   v-ons-list
     v-ons-list-header Trainer Name
     v-ons-list-item めきは
