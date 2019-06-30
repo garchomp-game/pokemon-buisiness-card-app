@@ -8,6 +8,7 @@ import Vue from 'vue'
 import VueOnsen from 'vue-onsenui'
 import firebase from 'firebase/app'
 import PageEmits from './mixin/PageEmits.js'
+import NavigationImport from './mixin/NavigationImport.js'
 // base plugin
 import store from './store'
 import App from './App'
@@ -26,6 +27,7 @@ firebase.initializeApp(config)
 
 Vue.use(VueOnsen)
 Vue.mixin(PageEmits)
+Vue.mixin(NavigationImport)
 
 /* eslint-disable no-new */
 new Vue({

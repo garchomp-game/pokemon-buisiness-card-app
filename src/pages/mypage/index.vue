@@ -1,12 +1,9 @@
-<template>
-  <v-ons-page>
-    <h1>mypage/index</h1>
-    <v-ons-button @click="pop">戻る</v-ons-button>
-  </v-ons-page>
+<template lang="pug">
+  v-ons-page
+    Navigation(centerMessage='mypage.index' @push="emitPush")
 </template>
 <script>
 export default {
-  name: '',
   data: () => ({
 
   }),

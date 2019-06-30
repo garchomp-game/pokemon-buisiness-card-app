@@ -1,13 +1,9 @@
 <template lang="pug">
   v-ons-page
-    v-ons-toolbar
-      .left
-        v-ons-toolbar-button(@click="pop") 戻る
-      .center Setting
+    Navigation(centerMessage='Setting' @push="emitPush")
 </template>
 <script>
 export default {
-  name: '',
   data: () => ({
 
   }),

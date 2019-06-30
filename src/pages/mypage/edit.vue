@@ -1,9 +1,6 @@
 <template lang="pug">
   v-ons-page
-    v-ons-toolbar
-      .left
-        v-ons-toolbar-button(@click='pop') 戻る
-      .center 編集
+    Navigation(centerMessage='編集' @push="emitPush")
     v-ons-list
       v-ons-list-item
         .custom-left
@@ -80,7 +77,6 @@
 </template>
 <script>
 export default {
-  name: '',
   data: () => ({
 
   }),

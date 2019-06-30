@@ -41,11 +41,7 @@ import CardsShow from './cards/show'
 import MypageIndex from './mypage/index'
 import MypageEdit from './mypage/edit'
 import SettingIndex from './setting/index'
-import Navigation from '../components/Navigation'
 export default {
-  components: {
-    Navigation
-  },
   methods: {
     showCardsIndex () {
       this.$emit('push', CardsIndex)
