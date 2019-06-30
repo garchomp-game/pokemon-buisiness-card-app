@@ -1,6 +1,6 @@
 <template lang="pug">
   v-ons-page
-    Navigation(centerMessage='編集' @push="emitPush")
+    Navigation(centerMessage='編集' :pageStatus="mypageEdit" @push="emitPush")
     v-ons-list
       v-ons-list-item
         .custom-left
