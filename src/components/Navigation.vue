@@ -1,23 +1,27 @@
 <template lang="pug">
 .toolbar
   .toolbar__left
-    v-ons-toolbar-button(@click="showSettingIndex" icon="md-settings") 設定
+    Slide(width="150")
+      span(@click="showMypageEdit") マイページ
+      span(@click="showSettingIndex") 設定
+      span(@click="logout") ログアウト
   .toolbar__center {{ centerMessage }}
   .toolbar__right
-    v-ons-toolbar-button(@click="showMypageEdit" icon="ion-edit")
-    v-ons-toolbar-button(@click="showCardsIndex" icon="ion-list") List
+    v-ons-toolbar-button(@click="showCardsIndex")
+      i.fas.fa-clipboard-list(style="color: black; font-size: 24px;")
 </template>
 <script>
 import MenuBar from './MenuBar'
 import CardsIndex from '../pages/cards/index'
 import MypageEdit from '../pages/mypage/edit'
 import SettingIndex from '../pages/setting/index'
+import { Slide } from 'vue-burger-menu'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 export default {
   name: 'Navigator',
   data: () => ({
-    currentPage: '',
-    pages: ['logout'],
-    openSide: false
+    currentPage: ''
   }),
   props: {
     hideBack: {
@@ -30,19 +34,16 @@ export default {
     }
   },
   components: {
-    MenuBar
-  },
-  computed: {
-    loginFlg: function () {
-      return this.$store.state.user.hasLogin
-    }
+    MenuBar,
+    Slide
   },
   methods: {
     pull () {
       this.$emit('pull')
     },
-    logout () {
-      this.$emit('logout')
+    async logout () {
+      await firebase.auth().signOut()
+      await this.$emit('reset')
     },
     showCardsIndex () {
       this.$emit('push', CardsIndex)
@@ -52,9 +53,23 @@ export default {
     },
     showSettingIndex () {
       this.$emit('push', SettingIndex)
+    },
+    showPullDown () {
+      console.log('pull down')
+    },
+    splitterOpen () {
+      console.log('open pulldown')
     }
   }
 }
 </script>
+<style>
+.bm-burger-button {
+   width: 24px;
+   height: 20px;
+   left: 12px;
+   top: 12px;
+ }
+</style>
 <style lang="sass" scoped>
 </style>

@@ -13,8 +13,6 @@ import store from './store'
 import App from './App'
 
 Vue.config.productionTip = false
-console.log(process.env)
-console.log('ghkjbfdgs')
 // setup firebase
 const config = {
   apiKey: process.env.apiKey,
