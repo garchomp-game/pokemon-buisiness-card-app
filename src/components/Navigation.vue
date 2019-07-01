@@ -11,13 +11,19 @@
   //中身をキーにして処理を分けたい（menubar右を「戻る」ボタンにしたい）
   //なのに各ページからの変数が取得できない。。。
   .toolbar__right
-    if pageStatus=="mypageEdit"
-      v-ons-toolbar-button(@click="showMypageIndex") MyPageEdit
-    else if pageStatus=="cardIndex"
-      v-ons-toolbar-button(@click="showMypageIndex") CardIndex
-    else
-      v-ons-toolbar-button(@click="showCardsIndex") {{ pageStatus }}
-        //i.fas.fa-clipboard-list(style="color: black; font-size: 24px;")
+    v-ons-toolbar-button(
+      v-if="pageStatus=='mypageEdit'"
+      @click="showMypageIndex"
+    ) MyPageEdit
+    v-ons-toolbar-button(
+      v-else-if="pageStatus=='cardIndex'"
+      @click="showMypageIndex"
+    ) CardIndex
+    v-ons-toolbar-button(
+      v-else
+      @click="showCardsIndex"
+    ) {{ pageStatus }}
+      //i.fas.fa-clipboard-list(style="color: black; font-size: 24px;")
 </template>
 <script>
 import MenuBar from './MenuBar'
