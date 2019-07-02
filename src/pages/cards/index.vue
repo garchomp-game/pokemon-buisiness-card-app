@@ -5,7 +5,7 @@
 <script>
 export default {
   data: () => ({
-    pageStatus: 'mypageEdit'
+    pageStatus: 'cardIndex'
   }),
   methods: {
     pop () {

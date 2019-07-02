@@ -6,7 +6,7 @@
       span(@click="showMypageEdit") 編集
       span(@click="showSettingIndex") 設定
       span(@click="logout") ログアウト
-  .toolbar__center {{ pageStatus }}
+  .toolbar__center {{ centerMessage }}
   //編集ページ、カードリストページからpageStatusという変数を受け取り、
   //中身をキーにして処理を分けたい（menubar右を「戻る」ボタンにしたい）
   //なのに各ページからの変数が取得できない。。。
@@ -14,16 +14,23 @@
     v-ons-toolbar-button(
       v-if="pageStatus=='mypageEdit'"
       @click="showMypageIndex"
-    ) MyPageEdit
+    ) 
+      i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
       v-else-if="pageStatus=='cardIndex'"
       @click="showMypageIndex"
-    ) CardIndex
+    ) 
+      i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
+    v-ons-toolbar-button(
+      v-else-if="pageStatus=='settingIndex'"
+      @click="showMypageIndex"
+    ) 
+      i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
       v-else
       @click="showCardsIndex"
-    ) {{ pageStatus }}
-      //i.fas.fa-clipboard-list(style="color: black; font-size: 24px;")
+    ) 
+      i.fas.fa-clipboard-list(style="color: black; font-size: 24px;")
 </template>
 <script>
 import MenuBar from './MenuBar'

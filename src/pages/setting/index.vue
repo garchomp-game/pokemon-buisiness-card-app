@@ -1,11 +1,11 @@
 <template lang="pug">
   v-ons-page
-    Navigation(centerMessage='Setting' @push="emitPush")
+    Navigation(centerMessage='Setting' :pageStatus="pageStatus" @push="emitPush")
 </template>
 <script>
 export default {
   data: () => ({
-
+    pageStatus: 'settingIndex'
   }),
   methods: {
     pop () {

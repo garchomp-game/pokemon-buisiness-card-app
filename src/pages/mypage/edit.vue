@@ -1,6 +1,6 @@
 <template lang="pug">
   v-ons-page
-    Navigation(centerMessage='編集' :pageStatus="mypageEdit" @push="emitPush")
+    Navigation(centerMessage='編集' :pageStatus="pageStatus" @push="emitPush")
     v-ons-list
       v-ons-list-item
         .custom-left
@@ -78,7 +78,7 @@
 <script>
 export default {
   data: () => ({
-
+    pageStatus: 'mypageEdit'
   }),
   methods: {
     pop () {
