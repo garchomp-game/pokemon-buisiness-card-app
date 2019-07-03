@@ -3,6 +3,13 @@
     Navigation(centerMessage='編集' :pageStatus="pageStatus" @push="emitPush")
     v-ons-list
       v-ons-list-item
+        v-ons-row
+          v-ons-col 入力欄
+          v-ons-col(width="120px")
+            span 公開/非公開
+            br
+            span 切り替え
+      v-ons-list-item
         .custom-left
           v-ons-input.custom-left-input(placeholder='Trainer Name')
       v-ons-list-item
@@ -12,41 +19,17 @@
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-select#choose-sel.custom-left-input
-            option(value='')
+          select.select-input#choose-sel.custom-left-input
+            option(value='' style="display: none;") gender
             option(value='♂') ♂
             option(value='♀') ♀
         .custom-right
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-select#choose-sel.custom-left-input
-            option(value='')
-            option(value='samisigari') さみしがり
-            option(value='ijippari') いじっぱり
-            option(value='yantya') やんちゃ
-            option(value='yukan') ゆうかん
-            option(value='zubutoi') ずぶとい
-            option(value='wanpaku') わんぱく
-            option(value='notenki') のうてんき
-            option(value='nonki') のんき
-            option(value='hikaeme') ひかえめ
-            option(value='ottori') おっとり
-            option(value='ukkariya') うっかりや
-            option(value='reisei') れいせい
-            option(value='odayaka') おだやか
-            option(value='otonasi') おとなしい
-            option(value='sintyo') しんちょう
-            option(value='namaiki') なまいき
-            option(value='okubyou') おくびょう
-            option(value='sekkati') せっかち
-            option(value='youki') ようき
-            option(value='mujaki') むじゃき
-            option(value='tereya') てれや
-            option(value='ganbariya') がんばりや
-            option(value='sunao') すなお
-            option(value='kimagure') きまぐれ
-            option(value='majime') まじめ
+          select.select-input#choose-sel.custom-left-input
+            option(value='' style="display: none;") personality
+            option(v-for="(item, key) in personality" :value="key") {{ item }}
         .custom-right
           v-ons-switch
       v-ons-list-item
@@ -78,7 +61,34 @@
 <script>
 export default {
   data: () => ({
-    pageStatus: 'mypageEdit'
+    pageStatus: 'mypageEdit',
+    personality: {
+      'samisigari': 'さみしがり',
+      'ijippari': 'いじっぱり',
+      'yantya': 'やんちゃ',
+      'yukan': 'ゆうかん',
+      'zubutoi': 'ずぶとい',
+      'wanpaku': 'わんぱく',
+      'notenki': 'のうてんき',
+      'nonki': 'のんき',
+      'hikaeme': 'ひかえめ',
+      'ottori': 'おっとり',
+      'ukkariya': 'うっかりや',
+      'reisei': 'れいせい',
+      'odayaka': 'おだやか',
+      'otonasi': 'おとなしい',
+      'sintyo': 'しんちょう',
+      'namaiki': 'なまいき',
+      'okubyou': 'おくびょう',
+      'sekkati': 'せっかち',
+      'youki': 'ようき',
+      'mujaki': 'むじゃき',
+      'tereya': 'てれや',
+      'ganbariya': 'がんばりや',
+      'sunao': 'すなお',
+      'kimagure': 'きまぐれ',
+      'majime': 'まじめ'
+    }
   }),
   methods: {
     pop () {
@@ -91,7 +101,7 @@ export default {
 .custom-left
   float: left
   width: 70vw
-  .custom-left-input
+  &-input
     width: 80%
 .custom-right
   float: right
