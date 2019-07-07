@@ -1,6 +1,6 @@
 <template lang="pug">
 v-ons-page
-  Navigation(centerMessage='Home' @push="emitPush")
+  Navigation(centerMessage='Home')
   v-ons-list
     v-ons-list-header Trainer Name
     v-ons-list-item めきは
@@ -24,41 +24,19 @@ v-ons-page
     .title home
     //- v-ons-list
       v-ons-list-item
-        v-ons-button(@click="showCardsIndex") CardsIndex
+        v-ons-button(@click="pushPage('CardsIndex')") CardsIndex
       v-ons-list-item
-        v-ons-button(@click="showCardsShow") CardsShow
+        v-ons-button(@click="pushPage('CardsShow')") CardsShow
       v-ons-list-item
-        v-ons-button(@click="showMypageIndex") MypageIndex
+        v-ons-button(@click="pushPage('MypageIndex')") MypageIndex
       //- v-ons-list-item
-        v-ons-button(@click="showMypageEdit") MypageEdit
+        v-ons-button(@click="pushPage('MypageEdit')") MypageEdit
       //- v-ons-list-item
-        v-ons-button(@click="showSettingIndex") SettingIndex
+        v-ons-button(@click="pushPage('SettingIndex')") SettingIndex
 </template>
 
 <script>
-import CardsIndex from './cards/index'
-import CardsShow from './cards/show'
-import MypageIndex from './mypage/index'
-import MypageEdit from './mypage/edit'
-import SettingIndex from './setting/index'
 export default {
-  methods: {
-    showCardsIndex () {
-      this.$emit('push', CardsIndex)
-    },
-    showCardsShow () {
-      this.$emit('push', CardsShow)
-    },
-    showMypageIndex () {
-      this.$emit('push', MypageIndex)
-    },
-    showMypageEdit () {
-      this.$emit('push', MypageEdit)
-    },
-    showSettingIndex () {
-      this.$emit('push', SettingIndex)
-    }
-  }
 }
 </script>
 

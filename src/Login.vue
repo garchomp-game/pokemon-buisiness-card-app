@@ -15,7 +15,6 @@
     v-ons-button.button-custom-margin(@click="signUpPage") 新規登録する
 </template>
 <script>
-import SignUp from './SignUp'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 export default {
@@ -28,14 +27,14 @@ export default {
     logIn () {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password)
       .then(user => {
-        this.$emit('pop')
+        this.pagePop()
       })
       .catch(err => {
         console.log(err)
       })
     },
     signUpPage () {
-      this.$emit('push', SignUp)
+      this.pushPage('SignUp')
     }
   }
 }

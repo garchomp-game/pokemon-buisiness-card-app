@@ -12,23 +12,20 @@
 import Home from './pages/Home'
 import Navigation from './components/Navigation'
 import firebase from 'firebase/app'
-import Login from './Login'
+import { mapState } from 'vuex'
 export default {
-  data () {
-    return {
-      pageStack: [Home]
-    }
-  },
   created () {
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
-        this.pageStack.push(Login)
+        this.pushPage('Login')
       }
     })
   },
+  computed: mapState({
+    pageStack: state => state.navigation.pageStack
+  }),
   components: {
-    Navigation,
-    Login
+    Navigation
   },
   methods: {
     reset () {

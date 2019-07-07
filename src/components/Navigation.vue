@@ -2,9 +2,9 @@
 .toolbar
   .toolbar__left
     Slide(width="150")
-      span(@click="showMypageIndex") マイページ
-      span(@click="showMypageEdit") 編集
-      span(@click="showSettingIndex") 設定
+      span(@click="pushPage('MypageIndex')") マイページ
+      span(@click="pushPage('MypageEdit')") 編集
+      span(@click="pushPage('SettingIndex')") 設定
       span(@click="logout") ログアウト
   .toolbar__center {{ centerMessage }}
   //編集ページ、カードリストページからpageStatusという変数を受け取り、
@@ -13,31 +13,27 @@
   .toolbar__right
     v-ons-toolbar-button(
       v-if="pageStatus=='mypageEdit'"
-      @click="showMypageIndex"
-    ) 
+      @click="pushPage('MypageIndex')"
+    )
       i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
       v-else-if="pageStatus=='cardIndex'"
-      @click="showMypageIndex"
-    ) 
+      @click="pushPage('MypageIndex')"
+    )
       i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
       v-else-if="pageStatus=='settingIndex'"
-      @click="showMypageIndex"
-    ) 
+      @click="pushPage('MypageIndex')"
+    )
       i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
       v-else
-      @click="showCardsIndex"
-    ) 
+      @click="pushPage('CardsIndex')"
+    )
       i.fas.fa-clipboard-list(style="color: black; font-size: 24px;")
 </template>
 <script>
 import MenuBar from './MenuBar'
-import CardsIndex from '../pages/cards/index'
-import MypageIndex from '../pages/Home'
-import MypageEdit from '../pages/mypage/edit'
-import SettingIndex from '../pages/setting/index'
 import { Slide } from 'vue-burger-menu'
 import firebase from 'firebase/app'
 import 'firebase/auth'
@@ -71,18 +67,6 @@ export default {
     async logout () {
       await firebase.auth().signOut()
       await this.$emit('reset')
-    },
-    showCardsIndex () {
-      this.$emit('push', CardsIndex)
-    },
-    showMypageIndex () {
-      this.$emit('push', MypageIndex)
-    },
-    showMypageEdit () {
-      this.$emit('push', MypageEdit)
-    },
-    showSettingIndex () {
-      this.$emit('push', SettingIndex)
     },
     showPullDown () {
       console.log('pull down')

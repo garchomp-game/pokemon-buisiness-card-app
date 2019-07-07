@@ -1,17 +1,12 @@
 <template lang="pug">
   v-ons-page
-    Navigation(centerMessage='トレーナーカードリスト' :pageStatus="pageStatus" @push="emitPush")
+    Navigation(centerMessage='トレーナーカードリスト' :pageStatus="pageStatus")
 </template>
 <script>
 export default {
   data: () => ({
     pageStatus: 'cardIndex'
-  }),
-  methods: {
-    pop () {
-      this.$emit('pop')
-    }
-  }
+  })
 }
 </script>
 <style lang="scss" scoped>

@@ -1,17 +1,12 @@
 <template lang="pug">
   v-ons-page
-    Navigation(centerMessage='cards/show' @push="emitPush")
+    Navigation(centerMessage='cards/show')
 </template>
 <script>
 export default {
   data: () => ({
 
-  }),
-  methods: {
-    pop () {
-      this.$emit('pop')
-    }
-  }
+  })
 }
 </script>
 <style lang="scss" scoped>

@@ -1,22 +1,25 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Home from './pages/Home'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    splitter: {
+    navigation: {
       namespaced: true,
       state: {
-        open: false
+        pageStack: [Home]
       },
       mutations: {
-        toggle (state, shouldOpen) {
-          if (typeof shouldOpen === 'boolean') {
-            state.open = shouldOpen
-          } else {
-            state.open = !state.open
-          }
+        push (state, page) {
+          state.pageStack.push(page)
+        },
+        pop (state) {
+          state.pageStack.pop()
+        },
+        reset (state) {
+          state.pageStack = []
         }
       }
     }

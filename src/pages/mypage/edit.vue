@@ -1,6 +1,6 @@
 <template lang="pug">
   v-ons-page
-    Navigation(centerMessage='編集' :pageStatus="pageStatus" @push="emitPush")
+    Navigation(centerMessage='編集' :pageStatus="pageStatus")
     v-ons-list
       v-ons-list-item
         v-ons-row
@@ -89,12 +89,7 @@ export default {
       'kimagure': 'きまぐれ',
       'majime': 'まじめ'
     }
-  }),
-  methods: {
-    pop () {
-      this.$emit('pop')
-    }
-  }
+  })
 }
 </script>
 <style lang="sass" scoped>
