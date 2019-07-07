@@ -19,7 +19,7 @@ export default new Vuex.Store({
           state.pageStack.pop()
         },
         reset (state) {
-          state.pageStack = []
+          state.pageStack = [Home]
         }
       }
     }

@@ -5,6 +5,7 @@ import MypageEdit from '../pages/mypage/edit'
 import SettingIndex from '../pages/setting/index'
 import Home from '../pages/Home'
 import SignUp from '../SignUp'
+import Login from '../Login'
 import { mapMutations } from 'vuex'
 
 export default {
@@ -16,7 +17,8 @@ export default {
       'MypageEdit': MypageEdit,
       'SettingIndex': SettingIndex,
       'Home': Home,
-      'SignUp': SignUp
+      'SignUp': SignUp,
+      'Login': Login
     }
   }),
   methods: {
@@ -29,6 +31,9 @@ export default {
     },
     pagePop () {
       this.pop()
+    },
+    pageReset () {
+      this.reset()
     }
   }
 }
