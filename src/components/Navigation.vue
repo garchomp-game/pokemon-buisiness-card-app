@@ -13,17 +13,17 @@
   .toolbar__right
     v-ons-toolbar-button(
       v-if="pageStatus=='mypageEdit'"
-      @click="pushPage('MypageIndex')"
+      @click="pushPage('Home')"
     )
       i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
       v-else-if="pageStatus=='cardIndex'"
-      @click="pushPage('MypageIndex')"
+      @click="pushPage('Home')"
     )
       i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
       v-else-if="pageStatus=='settingIndex'"
-      @click="pushPage('MypageIndex')"
+      @click="pushPage('Home')"
     )
       i.fas.fa-undo-alt(style="color: black; font-size: 24px;")
     v-ons-toolbar-button(
