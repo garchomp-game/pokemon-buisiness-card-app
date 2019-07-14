@@ -42,6 +42,10 @@ export default {
     currentPage: '',
     sliderData: [
       {
+        page: 'Home',
+        name: 'ホーム'
+      },
+      {
         page: 'MypageIndex',
         name: 'マイページ'
       },
