@@ -1,11 +1,10 @@
 <template lang="pug">
-.toolbar
+.toolbar(style="height: 48px;")
   .toolbar__left
-    Slide(width="150")
-      span(@click="pushPage('MypageIndex')") マイページ
-      span(@click="pushPage('MypageEdit')") 編集
-      span(@click="pushPage('SettingIndex')") 設定
-      span(@click="logout") ログアウト
+    Slider(
+      :sliderData="sliderData"
+      @logout="logout"
+    )
   .toolbar__center {{ centerMessage }}
   //編集ページ、カードリストページからpageStatusという変数を受け取り、
   //中身をキーにして処理を分けたい（menubar右を「戻る」ボタンにしたい）
@@ -34,13 +33,31 @@
 </template>
 <script>
 import MenuBar from './MenuBar'
-import { Slide } from 'vue-burger-menu'
 import firebase from 'firebase/app'
+import Slider from '@/components/Slider'
 import 'firebase/auth'
 export default {
   name: 'Navigator',
   data: () => ({
-    currentPage: ''
+    currentPage: '',
+    sliderData: [
+      {
+        page: 'MypageIndex',
+        name: 'マイページ'
+      },
+      {
+        page: 'MypageEdit',
+        name: '編集'
+      },
+      {
+        page: 'SettingIndex',
+        name: '設定'
+      },
+      {
+        page: 'Logout',
+        name: 'ログアウト'
+      }
+    ]
   }),
   props: {
     hideBack: {
@@ -58,7 +75,7 @@ export default {
   },
   components: {
     MenuBar,
-    Slide
+    Slider
   },
   methods: {
     pull () {
@@ -77,13 +94,5 @@ export default {
   }
 }
 </script>
-<style>
-.bm-burger-button {
-   width: 24px;
-   height: 20px;
-   left: 12px;
-   top: 12px;
- }
-</style>
 <style lang="sass" scoped>
 </style>

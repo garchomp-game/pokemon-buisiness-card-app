@@ -1,0 +1,14 @@
+.wrapper
+  .fas.fa-bars.wrapper__open-icon(
+    @click="openModal"
+  )
+  .slider(:style="sliderStyle")
+    i.fas.fa-times.slider__close-icon(
+      @click="closeModal"
+    )
+    .slider-header {{ header }}
+    .slider-content
+      .slider-content__item(
+        v-for="(item, index) in sliderData"
+        @click="jumpPage(item.page)"
+      ) {{ item.name }}
