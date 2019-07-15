@@ -46,10 +46,6 @@ export default {
         name: 'ホーム'
       },
       {
-        page: 'MypageIndex',
-        name: 'マイページ'
-      },
-      {
         page: 'MypageEdit',
         name: '編集'
       },
