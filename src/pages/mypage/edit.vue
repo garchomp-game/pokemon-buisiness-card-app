@@ -27,7 +27,7 @@
           v-ons-switch
       v-ons-list-item
         .custom-left
-          select.select-input(v-model='personality')#choose-sel.custom-left-input
+          select.select-input(v-model='personal')#choose-sel.custom-left-input
             option(value='' style="display: none;") personality
             option(v-for="(item, key) in personality" :value="key") {{ item }}
         .custom-right
@@ -90,12 +90,29 @@ export default {
       'sunao': 'すなお',
       'kimagure': 'きまぐれ',
       'majime': 'まじめ'
-    }
+    },
+    trainer_name: '',
+    name: '',
+    gender: '',
+    personal: '',
+    friendcode_switch: '',
+    friendcode_pokemongo: '',
+    friendcode_3ds: '',
+    twitter_id: '',
+    pixiv_id: ''
   }),
   methods: {
     pushEdit () {
       firebase.database().ref('mycard').push({
-//        text: this.
+        trainer_name: this.trainer_name,
+        name: this.name,
+        gender: this.gender,
+        personal: this.personal,
+        friendcode_switch: this.friendcode_switch,
+        friendcode_pokemongo: this.friendcode_pokemongo,
+        friendcode_3ds: this.friendcode_3ds,
+        twitter_id: this.twitter_id,
+        pixiv_id: this.pixiv_id
       })
       this.push(this.pages['Home'])
     }
