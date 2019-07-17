@@ -11,15 +11,15 @@
             span 切り替え
       v-ons-list-item
         .custom-left
-          v-ons-input.custom-left-input(placeholder='Trainer Name')
+          v-ons-input.custom-left-input(placeholder='Trainer Name', v-model='trainer_name')
       v-ons-list-item
         .custom-left
-          v-ons-input.custom-left-input(placeholder='Name', modifier='material')
+          v-ons-input.custom-left-input(placeholder='Name', modifier='material', v-model='name')
         .custom-right
           v-ons-switch
       v-ons-list-item
         .custom-left
-          select.select-input#choose-sel.custom-left-input
+          select.select-input(v-model='gender')#choose-sel.custom-left-input
             option(value='' style="display: none;") gender
             option(value='♂') ♂
             option(value='♀') ♀
@@ -27,39 +27,40 @@
           v-ons-switch
       v-ons-list-item
         .custom-left
-          select.select-input#choose-sel.custom-left-input
+          select.select-input(v-model='personality')#choose-sel.custom-left-input
             option(value='' style="display: none;") personality
             option(v-for="(item, key) in personality" :value="key") {{ item }}
         .custom-right
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-input.custom-left-input(placeholder='Friend Code(Switch)', modifier='material')
+          v-ons-input.custom-left-input(placeholder='Friend Code(Switch)', modifier='material', v-model='friendcode_switch')
         .custom-right
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-input.custom-left-input(placeholder='Friend Code(Pokemon GO)', modifier='material')
+          v-ons-input.custom-left-input(placeholder='Friend Code(Pokemon GO)', modifier='material', v-model='friendcode_pokemongo')
         .custom-right
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-input.custom-left-input(placeholder='Friend Code(3DS)', modifier='material')
+          v-ons-input.custom-left-input(placeholder='Friend Code(3DS)', modifier='material', v-model='friendcode_3ds')
         .custom-right
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-input.custom-left-input(placeholder='TwitterID', modifier='material')
+          v-ons-input.custom-left-input(placeholder='TwitterID', modifier='material', v-model='twitter_id')
         .custom-right
           v-ons-switch
       v-ons-list-item
         .custom-left
-          v-ons-input.custom-left-input(placeholder='PixivID', modifier='material')
+          v-ons-input.custom-left-input(placeholder='PixivID', modifier='material', v-model='pixiv_id')
         .custom-right
           v-ons-switch
-      v-ons-button(modifier='large',@click="pushPage('Home')") 完了
+      v-ons-button(modifier='large',@click="pushEdit") 完了
 </template>
 <script>
+import firebase from 'firebase'
 export default {
   data: () => ({
     pageStatus: 'mypageEdit',
@@ -90,7 +91,15 @@ export default {
       'kimagure': 'きまぐれ',
       'majime': 'まじめ'
     }
-  })
+  }),
+  methods: {
+    pushEdit () {
+      firebase.database().ref('mycard').push({
+//        text: this.
+      })
+      this.push(this.pages['Home'])
+    }
+  }
 }
 </script>
 <style lang="sass" scoped>
