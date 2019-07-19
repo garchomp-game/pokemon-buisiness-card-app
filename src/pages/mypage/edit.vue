@@ -103,6 +103,7 @@ export default {
   }),
   methods: {
     pushEdit () {
+      console.log(this.name)
       firebase.database().ref('mycard').push({
         trainer_name: this.trainer_name,
         name: this.name,
@@ -114,6 +115,7 @@ export default {
         twitter_id: this.twitter_id,
         pixiv_id: this.pixiv_id
       })
+      console.log(this.name)
       this.push(this.pages['Home'])
     }
   }
