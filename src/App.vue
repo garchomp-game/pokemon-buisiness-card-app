@@ -1,4 +1,3 @@
-
 <template lang="pug">
   v-ons-navigator(
     swipeable

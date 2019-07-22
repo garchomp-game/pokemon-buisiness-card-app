@@ -20,6 +20,10 @@ v-ons-page
     v-ons-list-item
     v-ons-list-header PixivID
     v-ons-list-item
+  v-ons-input(v-model="word" placeholder="please keyword")
+  v-ons-button(@click="doSend") send
+  v-ons-list
+    v-ons-list-item(v-for="(item, index) in testData", :key="index") {{ item.value }}
   //- v-ons-card
     .title home
     //- v-ons-list
@@ -36,7 +40,33 @@ v-ons-page
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/database'
 export default {
+  data () {
+    return {
+      testData: [],
+      word: ''
+    }
+  },
+  created () {
+    const refTest = firebase.database().ref('test')
+    refTest.limitToLast(10).on('child_added', this.childAdded)
+  },
+  methods: {
+    childAdded (snap) {
+      const data = snap.val()
+      this.testData.push({
+        key: snap.key,
+        value: data.value
+      })
+    },
+    doSend () {
+      firebase.database().ref('test').push({
+        value: this.word
+      })
+    }
+  }
 }
 </script>
 
