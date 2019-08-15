@@ -89,7 +89,16 @@ export default {
       'sunao': 'すなお',
       'kimagure': 'きまぐれ',
       'majime': 'まじめ'
-    }
+    },
+    trainer_name: '',
+    name: '',
+    gender: '',
+    personal: '',
+    friendcode_switch: '',
+    friendcode_pokemongo: '',
+    friendcode_3ds: '',
+    twitter_id: '',
+    pixiv_id: ''
   })
 }
 </script>
