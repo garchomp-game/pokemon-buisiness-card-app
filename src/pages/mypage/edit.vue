@@ -57,6 +57,7 @@
           v-ons-input.custom-left-input(placeholder='PixivID', modifier='material')
         .custom-right
           v-ons-switch
+      v-ons-button(modifier='large',@click="pushEdit") 完了
 </template>
 <script>
 export default {
