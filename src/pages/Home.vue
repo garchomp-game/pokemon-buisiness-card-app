@@ -1,25 +1,25 @@
 <template lang="pug">
-v-ons-page
+v-ons-page(@init="initEvent")
   Navigation(centerMessage='Home')
   v-ons-list
     v-ons-list-header Trainer Name
-    v-ons-list-item {{ this.trainer_name }}
+    v-ons-list-item {{ trainer_name }}
     v-ons-list-header Name
-    v-ons-list-item
+    v-ons-list-item {{ name }}
     v-ons-list-header Sex
-    v-ons-list-item ♂
+    v-ons-list-item {{ gender }}
     v-ons-list-header Character
-    v-ons-list-item のんびり
+    v-ons-list-item {{ character}}
     v-ons-list-header FriendCode(PokemonGO)
-    v-ons-list-item 1111-2222-3333-4444
+    v-ons-list-item {{ friendcode_pokemongo}}
     v-ons-list-header FriendCode(Switch)
-    v-ons-list-item 1111-2222-3333-4444
+    v-ons-list-item {{ friendcode_switch }}
     v-ons-list-header FriendCode(3DS)
-    v-ons-list-item 1111-2222-3333-4444
+    v-ons-list-item {{ friendcode_3ds }}
     v-ons-list-header TwitterID
-    v-ons-list-item
+    v-ons-list-item {{ twitter_id }}
     v-ons-list-header PixivID
-    v-ons-list-item
+    v-ons-list-item {{ pixiv_id }}
   //- v-ons-card
     .title home
     //- v-ons-list
@@ -36,39 +36,15 @@ v-ons-page
 </template>
 
 <script>
+import config from '../const.js'
 export default {
   data: () => ({
     pageStatus: 'Home',
-    personality: {
-      'samisigari': 'さみしがり',
-      'ijippari': 'いじっぱり',
-      'yantya': 'やんちゃ',
-      'yukan': 'ゆうかん',
-      'zubutoi': 'ずぶとい',
-      'wanpaku': 'わんぱく',
-      'notenki': 'のうてんき',
-      'nonki': 'のんき',
-      'hikaeme': 'ひかえめ',
-      'ottori': 'おっとり',
-      'ukkariya': 'うっかりや',
-      'reisei': 'れいせい',
-      'odayaka': 'おだやか',
-      'otonasi': 'おとなしい',
-      'sintyo': 'しんちょう',
-      'namaiki': 'なまいき',
-      'okubyou': 'おくびょう',
-      'sekkati': 'せっかち',
-      'youki': 'ようき',
-      'mujaki': 'むじゃき',
-      'tereya': 'てれや',
-      'ganbariya': 'がんばりや',
-      'sunao': 'すなお',
-      'kimagure': 'きまぐれ',
-      'majime': 'まじめ'
-    },
+    personality: {},
     trainer_name: '',
     name: '',
     gender: '',
+    character: '',
     personal: '',
     friendcode_switch: '',
     friendcode_pokemongo: '',
@@ -77,11 +53,19 @@ export default {
     pixiv_id: ''
   }),
   methods: {
-    window: onload = function () {
-      console.log('Home')
-      // var KEY = 'personal'
-      // var obj = JSON.parse(localStorage.getItem(KEY))
-      this.trainer_name = 'onload'
+    async initEvent () {
+      this.personality = config.personality
+      const user = await JSON.parse(localStorage.profile)
+      this.trainer_name = user.trainer_name
+      this.name = user.name
+      this.gender = user.gender
+      this.character = user.character
+      this.personal = user.personal
+      this.friendcode_switch = user.friendcode_switch
+      this.friendcode_pokemongo = user.friendcode_pokemongo
+      this.friendcode_3ds = user.friendcode_3ds
+      this.twitter_id = user.twitter_id
+      this.pixiv_id = user.pixiv_id
     }
   }
 }
