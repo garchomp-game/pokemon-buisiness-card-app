@@ -99,7 +99,28 @@ export default {
     friendcode_3ds: '',
     twitter_id: '',
     pixiv_id: ''
-  })
+  }),
+  methods: {
+    pushEdit () {
+      // console.log(this.name)
+      // firebase.database().ref('mycard').push({
+      //   trainer_name: this.trainer_name,
+      //   name: this.name,
+      //   gender: this.gender,
+      //   personal: this.personal,
+      //   friendcode_switch: this.friendcode_switch,
+      //   friendcode_pokemongo: this.friendcode_pokemongo,
+      //   friendcode_3ds: this.friendcode_3ds,
+      //   twitter_id: this.twitter_id,
+      //   pixiv_id: this.pixiv_id
+      // })
+      var KEY = 'personal'
+      var obj = {trainer_name: 'test', name: this.name}
+      localStorage.setItem(KEY, JSON.stringify(obj))
+      console.log('pushEdit')
+      this.push(this.pages['Home'])
+    }
+  }
 }
 </script>
 <style lang="sass" scoped>

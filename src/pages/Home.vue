@@ -3,7 +3,7 @@ v-ons-page
   Navigation(centerMessage='Home')
   v-ons-list
     v-ons-list-header Trainer Name
-    v-ons-list-item めきは
+    v-ons-list-item {{ this.trainer_name }}
     v-ons-list-header Name
     v-ons-list-item
     v-ons-list-header Sex
@@ -37,6 +37,53 @@ v-ons-page
 
 <script>
 export default {
+  data: () => ({
+    pageStatus: 'Home',
+    personality: {
+      'samisigari': 'さみしがり',
+      'ijippari': 'いじっぱり',
+      'yantya': 'やんちゃ',
+      'yukan': 'ゆうかん',
+      'zubutoi': 'ずぶとい',
+      'wanpaku': 'わんぱく',
+      'notenki': 'のうてんき',
+      'nonki': 'のんき',
+      'hikaeme': 'ひかえめ',
+      'ottori': 'おっとり',
+      'ukkariya': 'うっかりや',
+      'reisei': 'れいせい',
+      'odayaka': 'おだやか',
+      'otonasi': 'おとなしい',
+      'sintyo': 'しんちょう',
+      'namaiki': 'なまいき',
+      'okubyou': 'おくびょう',
+      'sekkati': 'せっかち',
+      'youki': 'ようき',
+      'mujaki': 'むじゃき',
+      'tereya': 'てれや',
+      'ganbariya': 'がんばりや',
+      'sunao': 'すなお',
+      'kimagure': 'きまぐれ',
+      'majime': 'まじめ'
+    },
+    trainer_name: '',
+    name: '',
+    gender: '',
+    personal: '',
+    friendcode_switch: '',
+    friendcode_pokemongo: '',
+    friendcode_3ds: '',
+    twitter_id: '',
+    pixiv_id: ''
+  }),
+  methods: {
+    window: onload = function () {
+      console.log('Home')
+      // var KEY = 'personal'
+      // var obj = JSON.parse(localStorage.getItem(KEY))
+      this.trainer_name = 'onload'
+    }
+  }
 }
 </script>
 
