@@ -12,6 +12,7 @@ import NavigationImport from './mixin/NavigationImport.js'
 // base plugin
 import store from './store'
 import App from './App'
+import VueQrcode from '@chenfengyuan/vue-qrcode'
 
 Vue.config.productionTip = false
 // setup firebase
@@ -25,6 +26,7 @@ const config = {
 }
 firebase.initializeApp(config)
 
+Vue.component(VueQrcode.name, VueQrcode)
 Vue.use(VueOnsen)
 Vue.mixin(Route)
 Vue.mixin(NavigationImport)
